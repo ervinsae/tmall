@@ -42,7 +42,10 @@ public class AdminLoginController extends BaseController {
         } else {
             logger.info("登录验证成功，管理员ID传入会话");
             session.setAttribute("adminId",admin.getAdmin_id());
+            logger.info("sessionId:" + session.getId());
             object.put("success",true);
+            object.put("id", admin.getAdmin_id());
+            object.put("sessionId", session.getId());
         }
 
         return object.toJSONString();
